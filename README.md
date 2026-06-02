@@ -37,7 +37,8 @@ docker-compose up --build
 
 ```bash
 cd taskmanager
-docker-compose down && docker-compose up --build
+docker-compose down
+docker-compose up --build
 ```
 
 Открыть в браузере: http://localhost
