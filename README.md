@@ -19,16 +19,24 @@
 
 - Docker и Docker Compose
 
-### Шаги
+### Первый запуск
 
-1. Клонировать репозиторий: `git clone <url>`
-2. Скопировать файл переменных окружения: `cp .env.example .env`
-3. Запустить все сервисы: `docker compose up --build`
-4. Открыть в браузере: http://localhost
+```bash
+git clone https://github.com/DanilaBaryshev/taskmanager
+cp .env.example .env
+docker compose up --build
+```
+
+### Повторный запуск
+
+```bash
+docker compose down
+docker compose up --build
+```
+
+Открыть в браузере: http://localhost
 
 Backend API доступен на http://localhost:4000.
-
-> При повторном запуске рекомендуется: `docker compose down && docker compose up --build`
 
 ## Переменные окружения
 
@@ -40,7 +48,6 @@ Backend API доступен на http://localhost:4000.
 | `DATABASE_URL` | Строка подключения к PostgreSQL      | `postgres://user:password@db:5432/taskmanager`|
 | `JWT_SECRET`   | Секрет для подписи JWT-токенов       | `changeme`                                    |
 
-> Для продакшена обязательно смените `JWT_SECRET` и пароль базы данных на надёжные значения.
 
 ## Запуск тестов
 
