@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS project_members (
 CREATE TABLE IF NOT EXISTS tasks (
   id          SERIAL PRIMARY KEY,
   project_id  INTEGER NOT NULL REFERENCES projects(id) ON DELETE CASCADE,
-  column      VARCHAR(20) NOT NULL CHECK (column IN ('todo', 'in_progress', 'done')),
+  "column"    VARCHAR(20) NOT NULL CHECK ("column" IN ('todo', 'in_progress', 'done')),
   title       VARCHAR(255) NOT NULL,
   description TEXT,
   position    INTEGER NOT NULL DEFAULT 0,
@@ -48,6 +48,6 @@ CREATE TABLE IF NOT EXISTS task_history (
 
 -- индексы для ускорения выборок
 CREATE INDEX IF NOT EXISTS idx_tasks_project_id      ON tasks(project_id);
-CREATE INDEX IF NOT EXISTS idx_tasks_column          ON tasks(column);
+CREATE INDEX IF NOT EXISTS idx_tasks_column          ON tasks("column");
 CREATE INDEX IF NOT EXISTS idx_project_members_project_id ON project_members(project_id);
 CREATE INDEX IF NOT EXISTS idx_project_members_user_id    ON project_members(user_id);
