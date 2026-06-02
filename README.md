@@ -19,10 +19,10 @@
 
 - Docker и Docker Compose
 - Пользователь добавлен в группу `docker` (один раз, затем перелогиниться или выполнить `newgrp docker`):
-  ```bash
-  sudo usermod -aG docker $USER
-  newgrp docker
-  ```
+```bash
+sudo usermod -aG docker $USER
+newgrp docker
+```
 
 ### Первый запуск
 
@@ -42,7 +42,7 @@ docker-compose down && docker-compose up --build
 
 Открыть в браузере: http://localhost
 
-Backend API доступен на http://localhost:4000.
+Backend API доступен на http://localhost:4000
 
 ## Переменные окружения
 
