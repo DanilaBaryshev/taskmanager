@@ -18,20 +18,26 @@
 ### Требования
 
 - Docker и Docker Compose
+- Пользователь добавлен в группу `docker` (один раз, затем перелогиниться или выполнить `newgrp docker`):
+  ```bash
+  sudo usermod -aG docker $USER
+  newgrp docker
+  ```
 
 ### Первый запуск
 
 ```bash
 git clone https://github.com/DanilaBaryshev/taskmanager
+cd taskmanager
 cp .env.example .env
-docker compose up --build
+docker-compose up --build
 ```
 
 ### Повторный запуск
 
 ```bash
-docker compose down
-docker compose up --build
+cd taskmanager
+docker-compose down && docker-compose up --build
 ```
 
 Открыть в браузере: http://localhost
@@ -66,7 +72,7 @@ npm run test:coverage
 Запуск через Docker:
 
 ```bash
-docker compose run --rm backend npm run test:coverage
+docker-compose run --rm backend npm run test:coverage
 ```
 
 ### Frontend
@@ -78,7 +84,7 @@ npm test
 Запуск через Docker:
 
 ```bash
-docker compose run --rm frontend npm test
+docker-compose run --rm frontend npm test
 ```
 
 ## Роли RBAC
