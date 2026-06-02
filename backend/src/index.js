@@ -2,11 +2,18 @@
 require('dotenv').config();
 
 const express = require('express');
+const cors = require('cors');
 
 const app = express();
 
+// разрешаем кросс-доменные запросы от фронтенда
+app.use(cors());
+
 // парсим входящий JSON
 app.use(express.json());
+
+// маршруты авторизации
+app.use('/api/auth', require('./routes/auth'));
 
 // простая проверка что сервер живой
 app.get('/health', (req, res) => {
