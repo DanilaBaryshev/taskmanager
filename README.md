@@ -41,7 +41,7 @@ docker-compose down
 docker-compose up --build
 ```
 
-Открыть в браузере: http://localhost
+Открыть в браузере: http://localhost:3000/login
 
 Backend API доступен на http://localhost:4000
 
